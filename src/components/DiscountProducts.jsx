@@ -4,7 +4,10 @@ import { CiCirclePlus } from 'react-icons/ci'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
+
 const DiscountProducts = () => {
+    
+  
     const notify = () => toast.success("Product has been added to cart!");
 
     const styles = {
@@ -23,7 +26,7 @@ const DiscountProducts = () => {
                             discoutProducts && discoutProducts.map((ele) => (
                                 <div className="col-4 mb-5 " style={{ height: "600px" }} key={ele.id}>
                                     <div className="card ">
-                                        <Link to="/ProductDetails" style={{ textDecoration: "none", color: "black" }}>
+                                        <Link to={`/productdetails/${ele.id}`} style={{ textDecoration: "none", color: "black" }} onClick={()=> ProductHandler(ele.id)}>
                                             <span style={styles.discount} >{ele.discount}% Off</span>
                                             <img src={ele.imgUrl} className="card-img-top " alt="..." style={{ height: "400px" }} />
                                             <div className="card-body">

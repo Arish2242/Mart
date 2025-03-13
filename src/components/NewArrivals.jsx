@@ -34,7 +34,7 @@ const NewArrivals = () => {
                                 <div className="col-4 mb-5  " style={{ height: "550px" }} key={ele.id}>
                                    
                                         <div className="card " >
-                                        <Link to="/ProductDetails" style={{textDecoration:"none",color:"black"}}>
+                                        <Link to={`/productdetails/${ele.id}`} style={{textDecoration:"none",color:"black"}}>
                                             <img src={ele.imgUrl} className="card-img-top " alt="..." style={{ height: "400px" }} />
                                             <div className="card-body">
                                                 <h5 className="card-title">{ele.productName}</h5>
