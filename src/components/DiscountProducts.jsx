@@ -32,7 +32,7 @@ const DiscountProducts = () => {
                                             <div className="card-body">
                                                 <h5 className="card-title">{ele.productName}</h5>
                                                 <ion-icon name="star" style={{ margin: "1px", color: "yellow" }}></ion-icon>
-                                                <ion-icon name="star" style={{ margin: "1px", color: "yellow", color: "yellow" }}></ion-icon>
+                                                <ion-icon name="star" style={{ margin: "1px", color: "yellow" }}></ion-icon>
                                                 <ion-icon name="star" style={{ margin: "1px", color: "yellow" }}></ion-icon>
                                                 <ion-icon name="star" style={{ margin: "1px", color: "yellow" }}></ion-icon>
                                                 <ion-icon name="star" style={{ margin: "1px", color: "yellow" }}></ion-icon>

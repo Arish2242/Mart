@@ -33,6 +33,7 @@ import wireless04 from "./assets/Images/wireless-04.png";
 import sofaSlide from "./assets/Images/hero-img.png";
 import watchSlide from "./assets/Images/watch-07.png";
 
+
 export const SliderData = [
   {
       id: 1,
@@ -108,7 +109,7 @@ export const discoutProducts = [
     avgRating: 4.5,
   },
   {
-    id: "02",
+    id:"02",
     productName: "Rivet Bigelow Modern ",
     imgUrl: productImg02,
     category: "sofa",
