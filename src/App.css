@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.category-btn::before{
+
+    margin: 0px 60px;
+}
+
 #root {
   /* width: 98%;  */
   /* margin: 0 auto; */

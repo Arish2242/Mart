@@ -13,8 +13,7 @@ const Liked = ({ value }) => {
         })
         setlikedprods(Liked)
 
-    }, [prod])
-    console.log(likedprods);
+    }, [])
 
     const notify = () => toast.success("Product has been added to cart!");
 

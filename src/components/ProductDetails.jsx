@@ -14,7 +14,7 @@ const ProductDetails = () => {
       return ele.id === id
     })
     setproduct(prod)
-  }, [])
+  }, [id])
 
   return (
     <>
