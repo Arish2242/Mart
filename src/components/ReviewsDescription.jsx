@@ -15,7 +15,7 @@ const ReviewsDescription = ({ value }) => {
             <div>
                 <div className='d-flex'>
                  <p  style={{ border: "none", color: description==="description"?"black":"grey",cursor:"pointer"}} onClick={()=>descriptionHandler("description")} >Description</p>
-                <p className='ms-2' style={{ border: "none", color: description==="reviews"?"black":"grey",cursor:"pointer"}} onClick={()=>descriptionHandler("reviews")}>Reviews</p>
+                <p className='ms-2' style={{ border: "none", color: description==="reviews"?"black":"grey",cursor:"pointer"}} onClick={()=>descriptionHandler("reviews")}>Reviews({ reviewproduct[0].reviews.length})</p>
                 </div>
                {
                 description=="description"?<p >{reviewproduct[0].description}</p>:
