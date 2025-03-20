@@ -21,7 +21,7 @@ const Navbar = () => {
                         <Link to='/shop'>Shop</Link>
                     </li>
                     <li className="nav-item m-3 fs-5">
-                        <span >Cart</span>
+                        <Link  to='/cart'>Cart</Link>
                     </li>
                     <li className="nav-item m-3 fs-5">
                         <FaUser />

@@ -3,11 +3,17 @@ import { discoutProducts } from '../products'
 import { CiCirclePlus } from 'react-icons/ci'
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { add } from '../Redux/cartSlice';
 
 
 const DiscountProducts = () => {
     
-  
+  const dispatch = useDispatch()
+
+ const AddToCart =(product)=>{
+   dispatch(add(product))
+ }
     const notify = () => toast.success("Product has been added to cart!");
 
     const styles = {
@@ -39,7 +45,7 @@ const DiscountProducts = () => {
                                                 <p className="card-text" style={{ fontSize: "30px" }}>{ele.price} $</p>
                                             </div>
                                         </Link>
-                                        <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={notify} />
+                                        <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={ ()=>{return AddToCart(ele) , notify()}}  />
                                         <ToastContainer />
                                     </div>
                                 </div>
