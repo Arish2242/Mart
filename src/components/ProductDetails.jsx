@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const { id } = useParams()
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const prod = products.filter((ele) => {
       return ele.id === id
     })

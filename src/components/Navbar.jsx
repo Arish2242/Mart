@@ -3,9 +3,11 @@ import { FaUser } from 'react-icons/fa'
 import { IoCart } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import styles from "../stylings/Navbar.module.css"
+import { useSelector } from 'react-redux'
 
 
 const Navbar = () => {
+  const cartData=  useSelector(state=>state.cart)
     return (
         <>
 
@@ -26,9 +28,11 @@ const Navbar = () => {
                     <li className="nav-item m-3 fs-5">
                         <FaUser />
                     </li>
-                    <li className="nav-item m-3 fs-5">
+                   
+                    <li className="nav-item m-3 fs-4 mt-4">
                         <Link to='/cart'><IoCart /></Link>
                     </li>
+                    <span style={{position:'relative',top:'14px', right:'20px',color:'blue'}}>({cartData.length})</span>
                 </ul>
             </div>
 

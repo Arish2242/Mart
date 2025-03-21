@@ -14,6 +14,7 @@ const Shop = () => {
   const [category , setcategory] =useState("Filter By Category")
 
   useEffect(()=>{
+    window.scrollTo(0, 0);
   const SofaProd=products.filter((ele)=>
     ele.category=="sofa"
   )
