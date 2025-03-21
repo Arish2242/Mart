@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from './Navbar';
-import { remove } from '../Redux/cartSlice';
+import { minus, plus, remove } from '../Redux/cartSlice';
 
 const Cart = () => {
   const cartData = useSelector(data => data.cart)
@@ -11,6 +11,13 @@ const dispatch= useDispatch()
   const RemoveHandler=(id)=>{
     dispatch(remove(id))
   }
+  
+  const incrementHandler =(id)=>{
+    dispatch(plus(id))
+  }
+  // const decrementHandler=(id)=>{
+  //   dispatch(minus(id))
+  // }
   return (
     <>
       <Navbar />
@@ -41,12 +48,12 @@ const dispatch= useDispatch()
                     </div>
                     <div className="d-flex align-items-center">
                       <button
-                        className="btn btn-outline-secondary btn-sm me-2 me-4"
+                        className="btn btn-outline-secondary btn-sm me-2 me-4 pt-1" onClick={()=>incrementHandler(ele.id)}
                       >
                         +
                       </button>
                       <button
-                        className="btn btn-outline-secondary btn-sm me-2"
+                        className="btn btn-outline-secondary btn-sm pt-1 " onClick={()=>RemoveHandler(ele.id)}
                       >
                         -
                       </button>
@@ -59,7 +66,7 @@ const dispatch= useDispatch()
           ) : (
             <h3 className="text-center">Cart is Empty</h3>
           )}
-        </div>
+        </div >
         <div className="col-md-4">
           <div className="border p-3 rounded">
             <h5>Cart Summary</h5>
