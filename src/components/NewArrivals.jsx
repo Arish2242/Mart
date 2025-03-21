@@ -3,6 +3,8 @@ import { products } from '../products'
 import { CiCirclePlus } from 'react-icons/ci'
 import { toast, ToastContainer } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { add } from '../Redux/cartSlice'
 
 const NewArrivals = () => {
     const [Arrivals, setArrivals] = useState([])
@@ -14,7 +16,12 @@ const NewArrivals = () => {
 
     }, [])
 
-    const notify = () => toast.success("Product has been added to cart!");
+    const dispatch = useDispatch()
+
+    const AddToCart =(product)=>{
+      dispatch(add(product))
+      toast.success("Product has been added to cart!");
+    }
 
     const styles = {
         discount: { width: "70px", background: "SlateBlue", padding: "3px 6px", margin: "10px 20px", borderRadius: "25px", color: "white" },
@@ -48,7 +55,7 @@ const NewArrivals = () => {
                                                 </Link>
                                               
                                             
-                                            <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={notify} />
+                                            <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={ ()=> AddToCart(ele) } />
                                             <ToastContainer />
                                         </div>
                                     

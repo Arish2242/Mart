@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Navbar from './Navbar';
-
+import { remove } from '../Redux/cartSlice';
 
 const Cart = () => {
-
   const cartData = useSelector(data => data.cart)
-  console.log(cartData);
 
+const dispatch= useDispatch()
+
+  const RemoveHandler=(id)=>{
+    dispatch(remove(id))
+  }
   return (
     <>
       <Navbar />
-      <div className="bg-light d-flex justify-content-center align-items-center">
+      <div className="bg-light d-flex">
         <div className="container bg-white p-4 rounded shadow-lg">
           {cartData.length > 0 ? (
             cartData.map((ele) => (
@@ -22,13 +25,13 @@ const Cart = () => {
                       src={ele.imgUrl}
                       alt={ele.name}
                       className="img-fluid"
-                      style={{ width: "160px", height: "100px" }}
+                      style={{ width: "205px", height: "180px" }}
                     />
                     <div className="ms-3 flex-grow-1">
                       <h5 className="mb-1">{ele.productName}</h5>
                       <div className='d-flex'>
                         <p className="text-muted mb-1">
-                          {`$ ${ele.price}* 1`}
+                          {`$ ${ele.price}* ${ele.qty}`}
                         </p>
                         <p className="fw-bold mb-0 ms-3">
                           {`$ ${ele.price}`}
@@ -38,17 +41,17 @@ const Cart = () => {
                     </div>
                     <div className="d-flex align-items-center">
                       <button
-                        className="btn btn-outline-secondary btn-sm me-2"
+                        className="btn btn-outline-secondary btn-sm me-2 me-4"
                       >
                         +
                       </button>
                       <button
-                        className="btn btn-outline-secondary btn-sm"
+                        className="btn btn-outline-secondary btn-sm me-2"
                       >
                         -
                       </button>
                     </div>
-                    <button className="btn btn-close ms-3 mb-5"></button>
+                    <button className="btn btn-close ms-3 " style={{position:"relative",bottom:'70px'}} onClick={() =>  RemoveHandler(ele.id) }></button>
                   </div>
                 </div>
               </div>
@@ -57,7 +60,6 @@ const Cart = () => {
             <h3 className="text-center">Cart is Empty</h3>
           )}
         </div>
-
         <div className="col-md-4">
           <div className="border p-3 rounded">
             <h5>Cart Summary</h5>

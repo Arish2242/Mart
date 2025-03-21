@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import { products } from '../products'
 import ReviewsDescription from './ReviewsDescription'
 import Liked from './Liked'
+import { useDispatch } from 'react-redux'
+import { add } from '../Redux/cartSlice'
+import { toast, ToastContainer } from 'react-toastify'
 
 const ProductDetails = () => {
   const [product, setproduct] = useState([])
@@ -16,6 +19,12 @@ const ProductDetails = () => {
     setproduct(prod)
   }, [id])
 
+  const dispatch = useDispatch()
+
+  const AddToCart =(product)=>{
+    dispatch(add(product))
+    toast.success("Product has been added to cart!");
+  }
   return (
     <>
       <img src="../src/assets/Images/table.jpg" alt="" style={{ width: "100%", position: 'relative', bottom: "47px" }} />
@@ -51,7 +60,8 @@ const ProductDetails = () => {
                 </div>
                 <p className='mt-3'>{product[0].shortDesc}</p>
                 <input className='mb-3' type="number" placeholder='1' style={{ width: '75px',borderRadius: '5px',border: '1px solid black',padding: '1px 11px'}}/><br />
-                <button className='btn btn-primary'>Add to Cart</button>
+                <button className='btn btn-primary' onClick={ ()=> AddToCart(product[0]) }>Add to Cart</button>
+                <ToastContainer />
               </div> : ""
             }
           </div>

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { CiCirclePlus, CiSearch } from 'react-icons/ci'
 import { toast, ToastContainer } from 'react-toastify'
 import Footer from './Footer'
+import { useDispatch } from 'react-redux'
+import { add } from '../Redux/cartSlice'
 
 const Shop = () => {
 
@@ -40,8 +42,12 @@ console.log(filterProds);
     
   }
 
- const notify = () => toast.success("Product has been added to cart!");
+  const dispatch = useDispatch()
 
+  const AddToCart =(product)=>{
+    dispatch(add(product))
+    toast.success("Product has been added to cart!");
+  }
 const styles={
   input:{borderRadius:'20px', border:'1px solid ', width:'570px', margin:'0px 0px 0px 350px', height:'35px', background:'lightgrey' ,padding:'5px 15px'}}
   return (
@@ -85,7 +91,7 @@ const styles={
                           <p className="card-text" style={{ fontSize: "30px" }}>{ele.price} $</p>
                       </div>
                   </Link>
-                  <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={notify} />
+                  <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={ ()=> AddToCart(ele) } />
                   <ToastContainer />
               </div>
           </div>

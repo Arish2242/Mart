@@ -13,8 +13,9 @@ const DiscountProducts = () => {
 
  const AddToCart =(product)=>{
    dispatch(add(product))
+   toast.success("Product has been added to cart!");
  }
-    const notify = () => toast.success("Product has been added to cart!");
+   
 
     const styles = {
         discount: {  background: "SlateBlue", padding: "3px 6px", margin: "20px 20px", borderRadius: "25px", color: "white", position: "relative",top:"15px" },
@@ -45,7 +46,7 @@ const DiscountProducts = () => {
                                                 <p className="card-text" style={{ fontSize: "30px" }}>{ele.price} $</p>
                                             </div>
                                         </Link>
-                                        <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={ ()=>{return AddToCart(ele) , notify()}}  />
+                                        <CiCirclePlus style={{ fontSize: "40px", position: "relative", left: "290px", bottom: "57px" }} onClick={ ()=>{return AddToCart(ele) }}  />
                                         <ToastContainer />
                                     </div>
                                 </div>
