@@ -15,9 +15,12 @@ const dispatch= useDispatch()
   const incrementHandler =(id)=>{
     dispatch(plus(id))
   }
-  // const decrementHandler=(id)=>{
-  //   dispatch(minus(id))
-  // }
+  const decrementHandler=(id)=>{
+    dispatch(minus(id))
+  }
+  const totalprice =cartData.reduce((acc, ele)=>{
+    return acc + ele.price*ele.qty
+  }, 0)
   return (
     <>
       <Navbar />
@@ -41,19 +44,19 @@ const dispatch= useDispatch()
                           {`$ ${ele.price}* ${ele.qty}`}
                         </p>
                         <p className="fw-bold mb-0 ms-3">
-                          {`$ ${ele.price}`}
+                          {`$ ${ele.price * ele.qty}`}
                         </p>
                       </div>
 
                     </div>
                     <div className="d-flex align-items-center">
                       <button
-                        className="btn btn-outline-secondary btn-sm me-2 me-4 pt-1" onClick={()=>incrementHandler(ele.id)}
+                        className="btn btn-outline-secondary btn-sm me-2 me-3 pt-1" onClick={()=>incrementHandler(ele.id)}
                       >
                         +
                       </button>
                       <button
-                        className="btn btn-outline-secondary btn-sm pt-1 " onClick={()=>RemoveHandler(ele.id)}
+                        className="btn btn-outline-secondary btn-sm pt-1 " onClick={()=>decrementHandler(ele.id)}
                       >
                         -
                       </button>
@@ -64,17 +67,20 @@ const dispatch= useDispatch()
               </div>
             ))
           ) : (
-            <h3 className="text-center">Cart is Empty</h3>
+            <h3 className="text-center ">Cart is Empty</h3>
           )}
         </div >
+        {
+          cartData.length > 0 ?
         <div className="col-md-4">
           <div className="border p-3 rounded">
-            <h5>Cart Summary</h5>
+            <h5 className='text-primary'>Cart Summary</h5>
             <hr />
-            <p className="text-muted mb-1">Total Price:</p>
-            <p className="fs-4 text-primary fw-bold">$234</p>
+            <p className="text-muted mb-1 ">Total Price:</p>
+            <p className="fs-4  fw-bold">${totalprice}</p>
           </div>
-        </div>
+        </div> : ""
+}
       </div>
     </>
   )

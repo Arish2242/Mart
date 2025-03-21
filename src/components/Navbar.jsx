@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <>
 
-            <div className='mb-5 shadow py-2'>
+            <div className='mb-5 shadow py-2 'style={{position:'sticky',top:'0px',zIndex:'10000',background:'white'}}>
                 <ul className={`${styles.ulParent} nav justify-content-end`}>
                     <li className="nav-item m-3 fs-5 position-absolute top-0 start-0">
                         <img src="https://lms.achieversit.com/assets/images/logo.png" alt="ait" className='w-75'/>
