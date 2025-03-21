@@ -4,3 +4,10 @@
   display: flex;
   align-items: center;
 }
+.slider{
+  position: relative;
+  bottom: 60px; 
+  height: 400px;
+  width: 400px;
+  left: 100px;
+}

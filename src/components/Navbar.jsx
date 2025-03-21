@@ -9,10 +9,10 @@ const Navbar = () => {
     return (
         <>
 
-            <div className='mb-5 shadow py-2 'style={{position:'sticky',top:'0px',zIndex:'10000',background:'white'}}>
+            <div className='mb-5 shadow py-2 ' style={{ position: 'sticky', top: '0px', zIndex: '10000', background: 'white' }}>
                 <ul className={`${styles.ulParent} nav justify-content-end`}>
                     <li className="nav-item m-3 fs-5 position-absolute top-0 start-0">
-                        <img src="https://lms.achieversit.com/assets/images/logo.png" alt="ait" className='w-75'/>
+                        <img src="https://lms.achieversit.com/assets/images/logo.png" alt="ait" className='w-75' />
                     </li>
                     <li className="nav-item m-3 fs-5">
                         <Link to='/'>Home</Link>
@@ -21,17 +21,17 @@ const Navbar = () => {
                         <Link to='/shop'>Shop</Link>
                     </li>
                     <li className="nav-item m-3 fs-5">
-                        <Link  to='/cart'>Cart</Link>
+                        <Link to='/cart'>Cart</Link>
                     </li>
                     <li className="nav-item m-3 fs-5">
                         <FaUser />
                     </li>
                     <li className="nav-item m-3 fs-5">
-                        <IoCart />
+                        <Link to='/cart'><IoCart /></Link>
                     </li>
                 </ul>
             </div>
-            
+
         </>
     )
 }
