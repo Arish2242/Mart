@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 
 const Navbar = () => {
-  const cartData=  useSelector(state=>state.cart)
+    const cartData = useSelector(state => state.cart)
     return (
         <>
 
@@ -28,11 +28,16 @@ const Navbar = () => {
                     <li className="nav-item m-3 fs-5">
                         <FaUser />
                     </li>
-                   
-                    <li className="nav-item m-3 fs-4 mt-4">
-                        <Link to='/cart'><IoCart /></Link>
+
+                    <li className="nav-item m-3 mt-4">
+                        <Link to='/cart'><button type="button" className="btn  position-relative end-25 bottom-25 ">
+                            <IoCart  className='fs-3'/>
+                            <span className="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle ">
+                                <span >1</span>
+                            </span>
+                        </button></Link>
                     </li>
-                    <span style={{position:'relative',top:'14px', right:'20px',color:'blue'}}>({cartData.length})</span>
+
                 </ul>
             </div>
 
