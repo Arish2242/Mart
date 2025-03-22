@@ -24,7 +24,7 @@ const Reactslick = () => {
               <div className="col-6">
                 <h2 style={{fontSize:'45px'}}>{ele.title}</h2>
                 <p>{ele.desc}</p>
-                <button style={{border:'none',fontSize:'25px'}} >Visit Collections</button>
+                <button style={{border:'none',fontSize:'25px',background:'#e9d4ff'}} >Visit Collections</button>
               </div>
               <div className="col-6 ml-5 " >
                 <img className={` mb-5 ${styles.slider}` }  src={ele.cover} alt=""/>

@@ -30,10 +30,11 @@ const Navbar = () => {
                     </li>
 
                     <li className="nav-item m-3 mt-4">
-                        <Link to='/cart'><button type="button" className="btn  position-relative end-25 bottom-25 ">
+                        <Link to='/cart'><button type="button" className="btn  position-relative end-25  "style={{    bottom: '12px',
+    right: '10px'}}>
                             <IoCart  className='fs-3'/>
-                            <span className="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle ">
-                                <span >1</span>
+                            <span className="position-absolute top-0 start-100 translate-middle p-1 ps-2 pe-2 bg-primary border border-light rounded-circle ">
+                                <span >{cartData.length}</span>
                             </span>
                         </button></Link>
                     </li>
