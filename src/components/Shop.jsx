@@ -34,12 +34,19 @@ console.log(filterProds);
 
   const SearchHandler=(e)=>{
     const searchStr=e.target.value
+   
+  if(searchStr==''){
+    const searchProds=products.filter((ele)=>      
+      ele.category=="sofa")
+    setfilterProds(searchProds)
+  }
+  else{
     const searchProds=products.filter((ele)=>      
       ele.productName.toLowerCase().includes(searchStr.toLowerCase()))
-  
-  
-    
     setfilterProds(searchProds)
+  }
+    
+    
     
   }
 
